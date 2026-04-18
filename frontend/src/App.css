@@ -1,0 +1,239 @@
+:root{
+  --bg: #0b1220;
+  --card: rgba(255,255,255,0.06);
+  --cardBorder: rgba(255,255,255,0.12);
+  --text: #e9eefc;
+  --muted: rgba(233,238,252,0.75);
+
+  --primary: #7c3aed;
+  --primary2: #22c55e;
+
+  --warnBg: rgba(245, 158, 11, 0.18);
+  --warnBorder: rgba(245, 158, 11, 0.55);
+  --dangerBg: rgba(239, 68, 68, 0.16);
+  --dangerBorder: rgba(239, 68, 68, 0.55);
+}
+
+*{ box-sizing: border-box; }
+
+body{
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  background:
+    radial-gradient(900px 500px at 10% 10%, rgba(124,58,237,0.25), transparent 60%),
+    radial-gradient(900px 500px at 90% 30%, rgba(34,197,94,0.20), transparent 60%),
+    radial-gradient(900px 500px at 50% 100%, rgba(59,130,246,0.15), transparent 60%),
+    var(--bg);
+}
+
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 18px;
+}
+
+.header{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.title{
+  font-size: 36px;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+.subtitle{
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+@media (max-width: 980px){
+  .grid{ grid-template-columns: 1fr; }
+}
+
+.card{
+  background: var(--card);
+  border: 1px solid var(--cardBorder);
+  border-radius: 16px;
+  padding: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.20);
+}
+
+.card h2{
+  margin: 0 0 12px 0;
+  font-size: 20px;
+}
+
+.row{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn{
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: linear-gradient(135deg, rgba(124,58,237,0.95), rgba(59,130,246,0.85));
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  transition: transform 0.1s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.btn:hover:not(:disabled){
+  box-shadow: 0 0 18px rgba(124,58,237,0.55), 0 0 6px rgba(59,130,246,0.4);
+  transform: translateY(-1px);
+}
+
+.btn:active:not(:disabled){ transform: translateY(1px); box-shadow: none; }
+.btn:disabled{
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.badge{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  margin-top: 10px;
+  line-height: 1.3;
+}
+
+.badge.warn{
+  background: var(--warnBg);
+  border: 1px solid var(--warnBorder);
+  color: #ffd38a;
+}
+
+.badge.danger{
+  background: var(--dangerBg);
+  border: 1px solid var(--dangerBorder);
+  color: #ffb4b4;
+}
+
+.image{
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.label{
+  font-weight: 700;
+}
+
+.muted{
+  color: var(--muted);
+}
+
+.sectionTitle{
+  margin-top: 18px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: var(--text);
+}
+
+.probRow{
+  display: grid;
+  grid-template-columns: minmax(110px, 170px) 1fr 72px;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.bar{
+  height: 10px;
+  background: rgba(255,255,255,0.10);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.fill{
+  height: 100%;
+  border-radius: 999px;
+}
+
+.fill.glaucoma{
+  background: linear-gradient(90deg, #22c55e, #10b981);
+}
+.fill.diabetic_retinopathy{
+  background: linear-gradient(90deg, #3b82f6, #06b6d4);
+}
+.fill.cataract{
+  background: linear-gradient(90deg, #f59e0b, #f97316);
+}
+.fill.normal{
+  background: linear-gradient(90deg, #a78bfa, #7c3aed);
+}
+
+.kpi{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.kpiBox{
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 10px 12px;
+}
+
+.kpiValue{
+  font-size: 26px;
+  font-weight: 800;
+  margin-top: 4px;
+  letter-spacing: -0.5px;
+}
+
+.footerCard ul{
+  margin-top: 6px;
+  padding-left: 20px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ---- Loading Spinner ---- */
+@keyframes spin{
+  to{ transform: rotate(360deg); }
+}
+
+.spinner{
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.25);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+/* ---- Section title weight ---- */
+.sectionTitle{
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
